@@ -6,6 +6,7 @@ import java.util.Objects;
 
 public abstract class Vehicle {
     private static int uniqueID;
+
     private int ID;
     private String brand;
     private String model;
@@ -22,6 +23,7 @@ public abstract class Vehicle {
         this.seatsCapacity = seatsCapacity;
         this.colour = colour;
         this.fuelConsumptionPerKm = fuelConsumptionPerKm;
+        this.ID = uniqueID++;
     }
 
     public Ticket buyATicket(int passengers, double distanceInKm){
