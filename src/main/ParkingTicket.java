@@ -13,12 +13,26 @@ public class ParkingTicket {
     private int ID;
     private Vehicle vehicle;
     private LocalDateTime timeOfEntry;
-    private LocalDateTime timeOfExit;
-    private Duration durationOfParking; // = Duration.between(timeOfEntry,timeOfExit);
 
     public ParkingTicket(Vehicle vehicle, LocalDateTime timeOfEntry) {
         this.ID = uniqueID++;
         this.vehicle = vehicle;
         this.timeOfEntry = timeOfEntry;
+    }
+
+    public LocalDateTime getTimeOfEntry() {
+        return timeOfEntry;
+    }
+
+    public void setTimeOfEntry(LocalDateTime timeOfEntry) {
+        this.timeOfEntry = timeOfEntry;
+    }
+
+    public int getID() {
+        return ID;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
     }
 }

@@ -7,11 +7,23 @@ import java.util.Scanner;
 
 public class Demo {
     public static void main(String[] args) {
+        AirportParking airportParking = new AirportParking("J.F.K.");
+
         Airplane airplane = new Airplane("Boeing", "777", 150, "White", 1);
         Car automobile = new Car("Volvo", "XC90", 5, "Silver", 0.1);
         Ship cruise = new Ship("Atlantic", "Titanic", 3000, "Red", 50);
         Train bdzh = new Train("Bdzh", "TR1587", 140, "Blue", 1);
         Bus bus = new Bus("Mercedes", "Jitney2000", 55, "Golden", 0.3);
+
+        airportParking.addVehicle(airplane);
+        airportParking.addVehicle(automobile);
+        airportParking.addVehicle(cruise);
+        airportParking.addVehicle(bdzh);
+        airportParking.addVehicle(bus);
+        airportParking.exitVehicleAndCalculatePrice(airplane);
+        airportParking.exitVehicleAndCalculatePrice(automobile);
+        airportParking.exitVehicleAndCalculatePrice(bdzh);
+
 
         ArrayList<Vehicle> vehicles = new ArrayList<>();
         vehicles.add(airplane);
@@ -72,5 +84,7 @@ public class Demo {
         for (Ticket t: purchasedTickets) {
             System.out.println(t.toString());
         }
+
+
     }
 }

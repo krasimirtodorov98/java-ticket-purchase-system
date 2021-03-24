@@ -1,14 +1,16 @@
 package vehicles;
 
+import main.ParkingTicket;
 import main.Ticket;
 
 import java.util.Objects;
 
 public abstract class Vehicle {
-    private static int uniqueID;
+    private static int uniqueID = 1000;
 
     protected TypeOfVehicle type;
-    private int ID;
+    private ParkingTicket parkingTicket;
+    private int registrationPlate;
     private String brand;
     private String model;
     private int seatsCapacity;
@@ -24,7 +26,7 @@ public abstract class Vehicle {
         this.seatsCapacity = seatsCapacity;
         this.colour = colour;
         this.fuelConsumptionPerKm = fuelConsumptionPerKm;
-        this.ID = uniqueID++;
+        this.registrationPlate = uniqueID++;
     }
 
     public Ticket buyATicket(int passengers, double distanceInKm){
@@ -54,12 +56,12 @@ public abstract class Vehicle {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Vehicle vehicle = (Vehicle) o;
-        return ID == vehicle.ID;
+        return registrationPlate == vehicle.registrationPlate;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ID);
+        return Objects.hash(registrationPlate);
     }
 
     public TypeOfVehicle getType() {
@@ -68,5 +70,17 @@ public abstract class Vehicle {
 
     public int getRemainingSeats() {
         return remainingSeats;
+    }
+
+    public void setParkingTicket(ParkingTicket parkingTicket) {
+        this.parkingTicket = parkingTicket;
+    }
+
+    public int getRegistrationPlate() {
+        return registrationPlate;
+    }
+
+    public ParkingTicket getParkingTicket() {
+        return parkingTicket;
     }
 }
