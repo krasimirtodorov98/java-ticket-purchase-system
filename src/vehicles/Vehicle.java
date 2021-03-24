@@ -7,6 +7,7 @@ import java.util.Objects;
 public abstract class Vehicle {
     private static int uniqueID;
 
+    protected TypeOfVehicle type;
     private int ID;
     private String brand;
     private String model;
@@ -59,5 +60,13 @@ public abstract class Vehicle {
     @Override
     public int hashCode() {
         return Objects.hash(ID);
+    }
+
+    public TypeOfVehicle getType() {
+        return type;
+    }
+
+    public int getRemainingSeats() {
+        return remainingSeats;
     }
 }

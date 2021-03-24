@@ -3,6 +3,7 @@ package main;
 import vehicles.*;
 
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -18,8 +19,9 @@ public class AirportParking {
     private String nameOfAirport;
 
     public ParkingTicket addVehicle (Vehicle v){
-        ParkingTicket p = new ParkingTicket();
+        ParkingTicket p = new ParkingTicket(v, LocalDateTime.now());
         //Add vehicle to parking lot by type of vehicle
+
         return p;
     }
 
