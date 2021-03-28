@@ -1,5 +1,7 @@
 package main;
 
+import database.TicketRepository;
+import database.VehicleRepository;
 import vehicles.*;
 
 import java.util.ArrayList;
@@ -32,6 +34,11 @@ public class Demo {
         vehicles.add(bdzh);
         vehicles.add(bus);
 
+        VehicleRepository vehicleRepo = new VehicleRepository();
+        for (Vehicle v : vehicles) {
+            vehicleRepo.addVehicleToDB(v);
+        }
+
         ArrayList<Ticket> purchasedTickets = new ArrayList<>();
 
         int menuChoice = -1;
@@ -44,7 +51,7 @@ public class Demo {
             Scanner sc = new Scanner(System.in);
             System.out.println("---Ticket Purchase---");
             do {
-                System.out.println("Choose vehicle type: \n Airplane \n Car \n Ship \n Train \n Bus");
+                System.out.println("Choose vehicle type: \nAirplane \nCar \nShip \nTrain \nBus");
                 typeOfVehicle = sc.nextLine();
                 for (TypeOfVehicle t : TypeOfVehicle.values()) {
                     if(t.toString().equalsIgnoreCase(typeOfVehicle)){
@@ -70,8 +77,9 @@ public class Demo {
             }while(distance<1);
 
 
+
             for (Vehicle v : vehicles) {
-                if(v.getType().toString().equalsIgnoreCase(typeOfVehicle) && v.getRemainingSeats()>=numberOfPeople){
+                if(typeOfVehicle.equalsIgnoreCase(v.getType().toString())){
                     purchasedTickets.add(v.buyATicket(numberOfPeople, distance));
                 }
             }
@@ -80,11 +88,13 @@ public class Demo {
             menuChoice = sc.nextInt();
         }while(menuChoice!=0);
 
+        TicketRepository tr = new TicketRepository();
+
         System.out.println("---All tickets you have purchased--- \n");
         for (Ticket t: purchasedTickets) {
             System.out.println(t.toString());
+            tr.addTicketToDB(t);
         }
-
 
     }
 }

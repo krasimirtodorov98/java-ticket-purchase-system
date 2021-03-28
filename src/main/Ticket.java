@@ -29,4 +29,24 @@ public class Ticket {
                 + "Distance: " + distanceInKm +
                 "\nTime of purchase: " + timeOfPurchase;
     }
+
+    public int getTicketID() {
+        return ticketID;
+    }
+
+    public int getPassengers() {
+        return passengers;
+    }
+
+    public double getDistanceInKm() {
+        return distanceInKm;
+    }
+
+    public double getPrice() {
+        return price;
+    }
+
+    public LocalDateTime getTimeOfPurchase() {
+        return timeOfPurchase;
+    }
 }

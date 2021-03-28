@@ -1,0 +1,20 @@
+CREATE DATABASE transport_industry;
+CREATE USER 'admin'@'%' IDENTIFIED BY '12345';
+GRANT ALL PRIVILEGES ON transport_industry.* TO 'admin'@'%';
+CREATE TABLE vehicles(
+id INT AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
+type_of_vehicle VARCHAR(10) NOT NULL,
+registration_plate INT UNIQUE NOT NULL,
+brand VARCHAR(10) NOT NULL,
+model VARCHAR(15) NOT NULL,
+seats_capacity INT NOT NULL
+);
+CREATE TABLE tickets(
+id INT AUTO_INCREMENT UNIQUE NOT NULL PRIMARY KEY,
+ticket_id INT NOT NULL,
+passengers INT NOT NULL,
+distance_in_km DOUBLE NOT NULL,
+price DOUBLE NOT NULL,
+purchased_on DATETIME NOT NULL
+);
+

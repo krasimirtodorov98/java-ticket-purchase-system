@@ -83,4 +83,16 @@ public abstract class Vehicle {
     public ParkingTicket getParkingTicket() {
         return parkingTicket;
     }
+
+    public String getBrand() {
+        return brand;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getSeatsCapacity() {
+        return seatsCapacity;
+    }
 }
